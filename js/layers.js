@@ -15,7 +15,7 @@ addLayer("w", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
-        if (hasUpgrade('p', 13)) mult = mult.times(upgradeEffect('p', 13))
+        if (hasUpgrade('w', 12)) mult = mult.times(upgradeEffect('w', 12))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -23,7 +23,7 @@ addLayer("w", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "w", description: "W: Reset for waves", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "w", description: "Press W to do a wave reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
     upgrades: {
