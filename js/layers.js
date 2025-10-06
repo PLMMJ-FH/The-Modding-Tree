@@ -98,6 +98,7 @@ addLayer("g", {
 })
 addLayer("a", {
     symbol: "A", // This appears on the layer's node. Default is the id with the first letter capitalized
+    resource: "achievement points", // Name of prestige currency
     startData() { return {
         unlocked: true,
     }},
@@ -115,5 +116,5 @@ addLayer("a", {
 		    done() { return player.w.points.gte(100) },
 		    tooltip: "Reach 100 waves. Reward: Coins gain an extra x1.8 multiplier.",
         },
-}
+    },
 })
