@@ -6,7 +6,7 @@ addLayer("w", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#4BDC13",
+    color: "#FFFFFF",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "waves", // Name of prestige currency
     baseResource: "coins", // Name of resource prestige is based on
@@ -24,5 +24,12 @@ addLayer("w", {
     hotkeys: [
         {key: "w", description: "W: Reset for waves", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+    upgrades: {
+        11: {
+    title: "Boss Wave",
+    description: "Double your coin gain.",
+    cost: new Decimal(1),
+        },
+    },
 })
