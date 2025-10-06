@@ -23,7 +23,7 @@ addLayer("w", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "w", description: "Press W to do a wave reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "w", description: "W: Wave reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
     upgrades: {
@@ -42,7 +42,7 @@ addLayer("w", {
     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
         13: {
-    title: "Making Progress",
+    title: "Coins/Kill Bonus",
     description: "Waves boost coin generation.",
     cost: new Decimal(40),
     effect() {
