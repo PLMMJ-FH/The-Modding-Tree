@@ -29,7 +29,16 @@ addLayer("w", {
         11: {
     title: "Boss Wave",
     description: "Double your coin gain.",
-    cost: new Decimal(1),
+    cost: new Decimal(10),
+        },
+        12: {
+    title: "Making Progress",
+    description: "Waves boost coin generation.",
+    cost: new Decimal(40),
+    effect() {
+        return player[this.layer].points.add(1).pow(0.5)
+    },
+    effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
     },
 })
