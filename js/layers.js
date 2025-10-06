@@ -5,6 +5,8 @@ addLayer("w", {
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
+        best: new Decimal(0),
+        total: new Decimal(0),
     }},
     color: "#FFFFFF",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
@@ -28,8 +30,8 @@ addLayer("w", {
     layerShown(){return true},
     upgrades: {
         11: {
-    title: "Boss Wave",
-    description: "Double your coin gain.",
+    title: "Coins / Wave",
+    description: "Triple your coin gain.",
     cost: new Decimal(10),
         },
         12: {
@@ -42,7 +44,7 @@ addLayer("w", {
     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
         13: {
-    title: "Coins/Kill Bonus",
+    title: "Coins / Kill Bonus",
     description: "Waves boost coin generation.",
     cost: new Decimal(40),
     effect() {
@@ -59,6 +61,8 @@ addLayer("g", {
     startData() { return {
         unlocked: false,
 		points: new Decimal(0),
+        best: new Decimal(0),
+        total: new Decimal(0),
     }},
     color: "#FF23ED",
     requires: new Decimal(400), // Can be a function that takes requirement increases into account
@@ -86,9 +90,30 @@ addLayer("g", {
     description: "Waves boost gem earnings.",
     cost: new Decimal(2),
     effect() {
-        return player.w.points.add(1).pow(0.2) // TODO: figure out how to refer to another layer
+        return player.w.points.add(1).pow(0.2)
     },
     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
     },
+})
+addLayer("a", {
+    symbol: "A", // This appears on the layer's node. Default is the id with the first letter capitalized
+    startData() { return {
+        unlocked: true,
+    }},
+    color: "#FFFF00",
+    row: side, // Row the layer is in on the tree (0 is the first row)
+    layerShown(){return true},
+    tooltip() { // Optional, tooltip displays when the layer is locked
+        return ("Achievements")
+    },
+    achievements: {
+        rows: 16,
+        cols: 5,
+        11: {
+            name: "Tier 2",
+		    done() { return player.w.points.gte(100) },
+		    tooltip: "Reach 100 waves. Reward: Coins gain an extra x1.8 multiplier.",
+        },
+}
 })
