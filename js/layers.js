@@ -98,10 +98,8 @@ addLayer("g", {
 })
 addLayer("a", {
     symbol: "A", // This appears on the layer's node. Default is the id with the first letter capitalized
-//    resource: "achievement points", // placeholder
     startData() { return {
         unlocked: true,
-//        points: new Decimal(0),
     }},
     color: "#FFFF00",
     row: "side", // Row the layer is in on the tree (0 is the first row)
@@ -110,8 +108,8 @@ addLayer("a", {
         return ("Achievements")
     },
     achievements: {
-        rows: 16,
-        cols: 5,
+        rows: 12,
+        cols: 4,
         11: {
             name: "Tier 2",
 		    done() { return player.w.points.gte(100) },
