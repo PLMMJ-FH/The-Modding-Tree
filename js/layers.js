@@ -30,18 +30,18 @@ addLayer("w", {
     layerShown(){return true},
     upgrades: {
         11: {
-    title: "Coins / Wave",
-    description: "Triple your coin gain.",
-    cost: new Decimal(10),
-        },
-        12: {
     title: "Workshop",
     description: "Coins boost wave generation.",
-    cost: new Decimal(15),
+    cost: new Decimal(5),
     effect() {
         return player.points.add(1).pow(0.15)
     },
     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
+        12: {
+    title: "Coins / Wave",
+    description: "Doubles coin generation speed.",
+    cost: new Decimal(10),
         },
         13: {
     title: "Coins / Kill Bonus",
@@ -87,7 +87,7 @@ addLayer("g", {
     upgrades: {
         11: {
     title: "Floating Gems",
-    description: "Waves boost gem earnings.",
+    description: "Waves boost gem generation.",
     cost: new Decimal(2),
     effect() {
         return player.w.points.add(1).pow(0.2)
@@ -114,6 +114,11 @@ addLayer("a", {
             name: "Tier 2",
 		    done() { return player.w.points.gte(100) },
 		    tooltip: "Reach 100 waves. Reward: Coins gain an extra x1.8 multiplier.",
+        },
+        12: {
+            name: "T1: Flux",
+		    done() { return player.w.points.gte(4500) },
+		    tooltip: "Reach 4500 waves. Reward: Coins gain an extra x2 multiplier.",
         },
     },
 	tabFormat: [
