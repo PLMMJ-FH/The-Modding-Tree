@@ -98,12 +98,13 @@ addLayer("g", {
 })
 addLayer("a", {
     symbol: "A", // This appears on the layer's node. Default is the id with the first letter capitalized
-    resource: "achievement points", // Name of prestige currency
+//    resource: "achievement points", // placeholder
     startData() { return {
         unlocked: true,
+//        points: new Decimal(0),
     }},
     color: "#FFFF00",
-    row: side, // Row the layer is in on the tree (0 is the first row)
+    row: "side", // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
     tooltip() { // Optional, tooltip displays when the layer is locked
         return ("Achievements")
