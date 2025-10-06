@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "The ??? Tree",
-	author: "nobody",
-	pointsName: "points",
+	name: "The Defending Tree",
+	author: "PLMMJ",
+	pointsName: "coins",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -12,14 +12,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.1",
+	name: "Starting version",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v0.1</h3><br>
+		- Created the initial framework of the project.<br>
+		- Nothing to see here.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
