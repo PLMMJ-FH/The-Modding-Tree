@@ -116,4 +116,10 @@ addLayer("a", {
 		    tooltip: "Reach 100 waves. Reward: Coins gain an extra x1.8 multiplier.",
         },
     },
+	tabFormat: [
+		"blank", 
+		["display-text", function() { return "Achievements: "+player.a.achievements.length+"/"+(Object.keys(tmp.a.achievements).length-2) }], 
+		"blank", "blank",
+		"achievements",
+	],
 })
