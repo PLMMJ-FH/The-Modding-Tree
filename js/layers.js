@@ -30,17 +30,15 @@ addLayer("w", {
     layerShown(){return true},
     milestones: {
         0: {
-    requirementDescription: "100 waves",
-    effectDescription: "Gain 80% more Coins.",
-    done() { return player.w.points.gte(100) }
+            requirementDescription: "100 waves",
+            effectDescription: "Gain 80% more Coins.",
+            done() { return player.w.points.gte(100) }
         },
         1: {
-    requirementDescription: "10,000 waves",
-    effectDescription: "Gain 160% more Coins.",
-    done() { return player.w.points.gte(100) }
+            requirementDescription: "10,000 waves",
+            effectDescription: "Gain 160% more Coins.",
+            done() { return player.w.points.gte(100) }
         },
-        etc
-    },
     },
     upgrades: {
         11: {
