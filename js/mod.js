@@ -13,11 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
-	name: "Starting version",
+	num: "0.2",
+	name: "Tree update",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+	<h3>v0.1</h3><br>
+		- Started work on the actual tree.<br>
+		- Still nothing to see here.
 	<h3>v0.1</h3><br>
 		- Created the initial framework of the project.<br>
 		- Nothing to see here.`
@@ -45,8 +48,9 @@ function getPointGen() {
 	let gain = new Decimal(1)
 	if (hasUpgrade('w', 11)) gain = gain.times(2)
     if (hasUpgrade('w', 13)) gain = gain.times(upgradeEffect('w', 13))
-	if (hasAchievement('a', 11)) gain = gain.times(1.8)
-	if (hasAchievement('a', 11)) gain = gain.times(2)
+	if (hasMilestone('w', 0)) gain = gain.times(1.8)
+	if (hasMilestone('w', 1)) gain = gain.times(2.6)
+	if (hasAchievement('r', 11)) gain = gain.times(2)
 	return gain
 }
 
@@ -60,7 +64,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.points.gte(new Decimal("e4e10"))
 }
 
 

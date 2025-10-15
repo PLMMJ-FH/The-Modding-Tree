@@ -28,6 +28,20 @@ addLayer("w", {
         {key: "w", description: "W: Wave reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
+    milestones: {
+        0: {
+    requirementDescription: "100 waves",
+    effectDescription: "Gain 80% more Coins.",
+    done() { return player.w.points.gte(100) }
+        },
+        1: {
+    requirementDescription: "10,000 waves",
+    effectDescription: "Gain 160% more Coins.",
+    done() { return player.w.points.gte(100) }
+        },
+        etc
+    },
+    },
     upgrades: {
         11: {
     title: "Workshop",
@@ -96,8 +110,8 @@ addLayer("g", {
         },
     },
 })
-addLayer("a", {
-    symbol: "A", // This appears on the layer's node. Default is the id with the first letter capitalized
+addLayer("r", {
+    symbol: "R", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
         unlocked: true,
     }},
@@ -105,26 +119,21 @@ addLayer("a", {
     row: "side", // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
     tooltip() { // Optional, tooltip displays when the layer is locked
-        return ("Achievements")
+        return ("Relics")
     },
     achievements: {
         rows: 12,
         cols: 4,
         11: {
-            name: "Tier 2",
-		    done() { return player.w.points.gte(100) },
-		    tooltip: "Reach 100 waves. Reward: Coins gain an extra x1.8 multiplier.",
-        },
-        12: {
             name: "T1: Flux",
 		    done() { return player.w.points.gte(4500) },
-		    tooltip: "Reach 4500 waves. Reward: Coins gain an extra x2 multiplier.",
+		    tooltip: "Reach 4500 waves. Reward: Gain 100% more Coins.",
         },
     },
 	tabFormat: [
 		"blank", 
-		["display-text", function() { return "Achievements: "+player.a.achievements.length+"/"+(Object.keys(tmp.a.achievements).length-2) }], 
+		["display-text", function() { return "Relics: "+player.r.achievements.length+"/"+(Object.keys(tmp.a.achievements).length-2) }], 
 		"blank", "blank",
-		"achievements",
+		"relics",
 	],
 })
